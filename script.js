@@ -1,39 +1,34 @@
 const btn = document.getElementById("startBtn");
 const player = document.getElementById("player");
-const video = document.querySelector("video");
-const message = document.querySelector(".message");
-const card = document.querySelector(".card");
-
-const messages = [
-
-`📱 <strong>I GOT A TEXT!</strong><br><br>
-"The finale has arrived. Grab snacks immediately."`,
-
-`📱 <strong>I GOT A TEXT!</strong><br><br>
-"No Wi-Fi. No distractions. Just villa drama."`,
-
-`📱 <strong>I GOT A TEXT!</strong><br><br>
-"Your private Love Island screening starts now 💕"`
-
-];
+const video = document.getElementById("video");
+const card = document.getElementById("card");
 
 
 btn.addEventListener("click", async () => {
 
-    message.innerHTML =
-    messages[Math.floor(Math.random()*messages.length)];
-
+    // hide button
     btn.style.display = "none";
 
-    card.classList.add("watching");
-
+    // show video
     player.classList.remove("hidden");
 
+    // turn into viewing mode
+    card.classList.add("watching");
+
+
+    // attempt fullscreen
     try {
-        await video.requestFullscreen();
-        video.play();
-    } catch {
-        video.play();
+
+        await card.requestFullscreen();
+
+    } catch(error){
+
+        console.log("Fullscreen unavailable");
+
     }
+
+
+    // start video
+    video.play();
 
 });
