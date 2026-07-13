@@ -1,720 +1,249 @@
-*{
-
-box-sizing:border-box;
-margin:0;
-padding:0;
-
-}
-
-
-
-body{
-
-
-font-family:'Poppins',sans-serif;
-
-
-background:
-
-linear-gradient(
-135deg,
-#ff8cc6,
-#ffc4df,
-#ffe8f2
-);
-
-
-
-min-height:100vh;
-
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-
-overflow:hidden;
-
-
-padding:40px;
-
-
-}
-
-
-
-/* CARD */
-
-
-.card{
-
-
-width:min(95vw,1200px);
-
-
-background:
-
-linear-gradient(
-135deg,
-#fffdf8,
-#fff7fc
-);
-
-
-border-radius:35px;
-
-
-padding:55px;
-
-
-text-align:center;
-
-
-position:relative;
-
-
-z-index:2;
-
-
-
-border:5px solid white;
-
-
-
-box-shadow:
-
-0 25px 60px rgba(0,0,0,.18);
-
-
-
-animation:pop .8s ease;
-
-
-}
-
-
-
-.card::before{
-
-
-content:"";
-
-
-position:absolute;
-
-
-inset:15px;
-
-
-border:
-
-3px dashed #ffc1dc;
-
-
-
-border-radius:25px;
-
-
-
-pointer-events:none;
-
-
-}
-
-
-
-.tape{
-
-
-position:absolute;
-
-
-top:-18px;
-
-
-left:50%;
-
-
-transform:
-
-translateX(-50%)
-rotate(-5deg);
-
-
-
-height:35px;
-
-
-width:130px;
-
-
-
-background:#ffd1e5;
-
-
-opacity:.85;
-
-
-}
-
-
-
-
-/* TEXT */
-
-
-h1{
-
-
-color:#ff2f92;
-
-
-font-size:3.2rem;
-
-
-text-shadow:
-
-2px 2px #ffd1e5;
-
-
-}
-
-
-
-#subtitle{
-
-
-margin:30px auto;
-
-
-max-width:800px;
-
-
-line-height:1.8;
-
-
-font-size:1.25rem;
-
-
-color:#555;
-
-
-}
-
-
-
-/* BUTTON */
-
-
-button{
-
-
-background:#ff2f92;
-
-
-color:white;
-
-
-border:none;
-
-
-padding:20px 55px;
-
-
-border-radius:50px;
-
-
-font-size:1.2rem;
-
-
-font-weight:700;
-
-
-cursor:pointer;
-
-
-box-shadow:
-
-0 12px 25px rgba(255,47,146,.35);
-
-
-transition:.3s;
-
-
-}
-
-
-
-button:hover{
-
-
-transform:
-
-scale(1.05)
-rotate(-2deg);
-
-
-}
-
-
-
-/* VIDEO */
-
-
-.hidden{
-
-
-display:none;
-
-
-}
-
-
-
-video{
-
-
-width:100%;
-
-
-border-radius:25px;
-
-
-background:black;
-
-
-}
-
-
-
-/* FULLSCREEN VIEW */
-
-
-.card.watching{
-
-
-width:100vw;
-
-
-height:100vh;
-
-
-background:black;
-
-
-border:none;
-
-
-border-radius:0;
-
-
-padding:0;
-
-
-display:flex;
-
-
-align-items:center;
-
-
-justify-content:center;
-
-
-}
-
-
-
-.card.watching::before,
-
-.card.watching .tape,
-
-.card.watching h1,
-
-.card.watching #subtitle,
-
-.card.watching button,
-
-.card.watching .signature,
-
-
-.card.watching ~ .decor,
-
-.card.watching ~ .confetti{
-
-
-display:none;
-
-
-}
-
-
-
-.card.watching video{
-
-
-width:100vw;
-
-
-height:100vh;
-
-
-max-height:none;
-
-
-object-fit:contain;
-
-
-border-radius:0;
-
-
-}
-
-
-
-
-/* SCRAPBOOK STICKERS */
+/* ==========================
+   SCRAPBOOK DECORATIONS
+   ========================== */
 
 
 .decor{
 
+    position:fixed;
 
-position:absolute;
+    z-index:1;
 
+    font-size:55px;
 
-font-size:60px;
+    pointer-events:none;
 
+    filter:drop-shadow(
+        0 6px 4px rgba(0,0,0,.15)
+    );
 
-z-index:1;
-
-
-filter:
-
-drop-shadow(
-0 8px 5px rgba(0,0,0,.15)
-);
-
-
-
-animation:
-
-floatSticker 4s ease-in-out infinite;
-
+    animation:
+    stickerFloat 4s ease-in-out infinite;
 
 }
 
 
+/* top left sticker */
 
 .decor1{
 
-top:7%;
-left:8%;
-transform:rotate(-18deg);
+    top:8vh;
+    left:5vw;
+    transform:rotate(-15deg);
 
 }
 
 
+/* top right sticker */
 
 .decor2{
 
-top:12%;
-right:8%;
-transform:rotate(15deg);
+    top:10vh;
+    right:6vw;
+    transform:rotate(12deg);
 
 }
 
 
+/* left middle */
 
 .decor3{
 
-top:30%;
-left:4%;
-font-size:45px;
+    top:45%;
+    left:4vw;
+    font-size:42px;
 
 }
 
 
+/* bottom right */
 
 .decor4{
 
-bottom:12%;
-right:8%;
-transform:rotate(-15deg);
+    bottom:10vh;
+    right:7vw;
+    transform:rotate(-10deg);
 
 }
 
 
+/* bottom left */
 
 .decor5{
 
-bottom:18%;
-left:8%;
-font-size:50px;
+    bottom:12vh;
+    left:8vw;
+    font-size:48px;
 
 }
 
 
+/* right middle */
 
 .decor6{
 
-top:48%;
-right:4%;
-font-size:55px;
+    top:48%;
+    right:4vw;
 
 }
 
 
 
+@keyframes stickerFloat{
 
-@keyframes floatSticker{
+    0%,100%{
+
+        translate:0 0;
+
+    }
 
 
-50%{
+    50%{
 
-transform:
+        translate:0 -12px;
 
-translateY(-12px)
-rotate(5deg);
-
+    }
 
 }
 
 
+
+/* ==========================
+   CONFETTI
+   ========================== */
+
+
+.confetti{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:0;
+
 }
 
-
-
-/* CONFETTI */
 
 
 .confetti span{
 
+    position:absolute;
 
-position:absolute;
+    top:-50px;
 
+    font-size:28px;
 
-z-index:0;
-
-
-font-size:32px;
-
-
-opacity:.7;
-
-
-animation:
-
-fall 12s linear infinite;
-
+    animation:
+    confettiFall linear infinite;
 
 }
 
 
+
+/* spread across screen */
 
 .confetti span:nth-child(1){
 
-left:10%;
+    left:5%;
+    animation-duration:12s;
 
 }
-
 
 
 .confetti span:nth-child(2){
 
-left:25%;
-
-animation-duration:14s;
+    left:18%;
+    animation-duration:15s;
 
 }
-
 
 
 .confetti span:nth-child(3){
 
-left:40%;
-
-animation-duration:10s;
+    left:32%;
+    animation-duration:10s;
 
 }
-
 
 
 .confetti span:nth-child(4){
 
-left:55%;
-
-animation-duration:16s;
+    left:48%;
+    animation-duration:14s;
 
 }
-
 
 
 .confetti span:nth-child(5){
 
-left:70%;
-
-animation-duration:11s;
+    left:63%;
+    animation-duration:11s;
 
 }
-
 
 
 .confetti span:nth-child(6){
 
-left:85%;
-
-animation-duration:13s;
+    left:76%;
+    animation-duration:16s;
 
 }
-
 
 
 .confetti span:nth-child(7){
 
-left:60%;
-
-animation-duration:15s;
+    left:88%;
+    animation-duration:13s;
 
 }
-
 
 
 .confetti span:nth-child(8){
 
-left:35%;
-
-animation-duration:12s;
+    left:25%;
+    animation-duration:17s;
 
 }
-
 
 
 .confetti span:nth-child(9){
 
-left:90%;
-
-animation-duration:17s;
+    left:70%;
+    animation-duration:12s;
 
 }
-
 
 
 .confetti span:nth-child(10){
 
-left:15%;
-
-animation-duration:14s;
+    left:92%;
+    animation-duration:15s;
 
 }
 
 
 
-@keyframes fall{
+@keyframes confettiFall{
 
 
 from{
 
-transform:
-
-translateY(-20vh)
-rotate(0deg);
-
-}
-
-
-
-to{
-
-transform:
-
-translateY(120vh)
-rotate(360deg);
-
-}
-
-
-}
-
-
-
-/* OPEN ANIMATION */
-
-
-@keyframes pop{
-
-
-from{
-
-opacity:0;
-
-transform:
-
-scale(.85)
-rotate(-3deg);
-
+    transform:
+    translateY(-10vh)
+    rotate(0deg);
 
 }
 
 
 to{
 
-
-opacity:1;
-
-
-transform:
-
-scale(1)
-rotate(0);
-
-
-}
-
-
-}
-
-
-
-/* MOBILE */
-
-
-@media(max-width:800px){
-
-
-body{
-
-padding:20px;
-
-}
-
-
-.card{
-
-padding:35px 25px;
-
-}
-
-
-h1{
-
-font-size:2.2rem;
-
-}
-
-
-
-#subtitle{
-
-font-size:1rem;
-
-}
-
-
-
-.decor{
-
-display:none;
+    transform:
+    translateY(120vh)
+    rotate(360deg);
 
 }
 
