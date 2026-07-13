@@ -4,31 +4,21 @@ const video = document.getElementById("video");
 const card = document.getElementById("card");
 
 
-btn.addEventListener("click", async () => {
+btn.onclick = function(){
 
-    // hide button
+    console.log("Button clicked");
+
+
     btn.style.display = "none";
 
-    // show video
+
     player.classList.remove("hidden");
 
-    // turn into viewing mode
+
     card.classList.add("watching");
 
 
-    // attempt fullscreen
-    try {
-
-        await card.requestFullscreen();
-
-    } catch(error){
-
-        console.log("Fullscreen unavailable");
-
-    }
-
-
-    // start video
     video.play();
 
-});
+
+};
