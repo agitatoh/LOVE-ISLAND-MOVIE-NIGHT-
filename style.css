@@ -5,87 +5,171 @@
 }
 
 body{
-    font-family:Poppins,sans-serif;
+    font-family:'Poppins',sans-serif;
     background:linear-gradient(135deg,#ff80bf,#ffb6d9,#ffd8ea);
     min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
     overflow:hidden;
+    padding:30px;
 }
 
+/* Main Card */
+
 .card{
-    width:90%;
-    max-width:900px;
+    width:min(95vw,1400px);
     background:white;
     border-radius:30px;
-    padding:35px;
+    padding:40px;
     text-align:center;
-    box-shadow:0 25px 60px rgba(0,0,0,.2);
+    box-shadow:0 30px 80px rgba(0,0,0,.18);
+    position:relative;
     z-index:2;
 }
 
+/* Title */
+
 h1{
     color:#ff2f92;
-    font-size:2.3rem;
+    font-size:3rem;
+    margin-bottom:10px;
 }
 
+/* Intro */
+
 #subtitle{
-    margin:20px 0 30px;
+    max-width:800px;
+    margin:20px auto 35px;
     color:#555;
-    line-height:1.7;
+    font-size:1.15rem;
+    line-height:1.8;
 }
+
+/* Button */
 
 button{
     border:none;
     background:#ff2f92;
     color:white;
-    padding:18px 40px;
-    font-size:18px;
-    border-radius:50px;
+    padding:18px 42px;
+    font-size:20px;
+    font-weight:600;
+    border-radius:999px;
     cursor:pointer;
-    transition:.3s;
+    transition:.25s;
 }
 
 button:hover{
-    transform:scale(1.05);
     background:#ff0d80;
+    transform:translateY(-2px) scale(1.03);
 }
 
 .hidden{
     display:none;
 }
 
+/* Random message */
+
 .message{
     background:#fff2f8;
     color:#ff2f92;
     border-radius:20px;
-    padding:20px;
-    margin:30px 0;
-    font-size:18px;
+    padding:22px;
+    margin:30px 0 25px;
+    font-size:1.2rem;
+    font-weight:600;
 }
+
+/* Agenda box */
+
+.countdown{
+    background:#ffe6f2;
+    border:2px dashed #ff80bf;
+    border-radius:18px;
+    padding:18px;
+    margin-bottom:25px;
+    color:#d60074;
+    line-height:1.8;
+}
+
+/* Video */
 
 video{
     width:100%;
+    max-height:75vh;
+    background:black;
     border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.2);
 }
 
+/* Footer */
+
 .footer{
-    margin-top:20px;
+    margin-top:25px;
     color:#888;
+    font-size:1rem;
+    line-height:1.8;
+}
+
+/* Floating hearts */
+
+.hearts{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
 }
 
 .hearts::before{
-    content:"💖 💕 💗 💖 💕 💗";
+    content:"💖 💕 💗 💖 💕 💗 💘 💞";
     position:absolute;
-    top:-40px;
+    top:-60px;
+    left:0;
     width:100%;
-    font-size:40px;
-    animation:float 18s linear infinite;
+    font-size:42px;
+    text-align:center;
     opacity:.35;
+    animation:float 18s linear infinite;
 }
 
 @keyframes float{
-    from{transform:translateY(0);}
-    to{transform:translateY(120vh);}
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(120vh);
+    }
+}
+
+/* Mobile */
+
+@media (max-width:768px){
+
+    .card{
+        padding:28px;
+    }
+
+    h1{
+        font-size:2.2rem;
+    }
+
+    #subtitle{
+        font-size:1rem;
+    }
+
+    .message,
+    .countdown{
+        font-size:1rem;
+    }
+
+    button{
+        width:100%;
+        font-size:18px;
+    }
+
+    video{
+        max-height:60vh;
+    }
+
 }
