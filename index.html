@@ -8,6 +8,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
@@ -24,7 +25,8 @@
 <div class="sticker sticker5">📱</div>
 <div class="sticker sticker6">🏝️</div>
 
-<div class="card">
+
+<div class="card" id="card">
 
     <div class="tape"></div>
 
@@ -32,12 +34,16 @@
 
     <p id="subtitle">
         📱 I GOT A TEXT!<br><br>
+
         Since airport Wi-Fi is always a gamble...
         <br>
         I made sure the villa could come with you. 💕
+
         <br><br>
-        Your very own finale delivery has arrived.
+
+        Your very important finale delivery has arrived.
     </p>
+
 
     <button id="startBtn">
         💌 Open the villa
@@ -46,15 +52,9 @@
 
     <div id="player" class="hidden">
 
-        <div class="message"></div>
-
-        <video controls>
+        <video id="video" controls playsinline>
             <source src="movie.mp4" type="video/mp4">
         </video>
-
-        <p class="footer">
-            💕 Made with love because buffering during the finale is unacceptable.
-        </p>
 
     </div>
 
@@ -62,6 +62,7 @@
     <div class="signature">
         xoxo, your unofficial villa producer 🌴
     </div>
+
 
 </div>
 
