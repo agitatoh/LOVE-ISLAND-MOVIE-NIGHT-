@@ -1,20 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Offline Movie</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🏝️ Tonight's Recoupling 🩷</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
-    <h1>Offline Movie Player</h1>
+<div class="hearts"></div>
 
-    <video id="movie" controls>
-        <source src="movie.mp4" type="video/mp4">
-        Your browser does not support HTML5 video.
-    </video>
+<div class="card">
+
+    <h1>🏝️ Love Island USA Finale 💖</h1>
+
+    <p id="subtitle">
+        Tonight... someone is about to find love.
+        <br>
+        (Spoiler: it's you and this episode.)
+    </p>
+
+    <button id="startBtn">
+        💌 Enter the Villa
+    </button>
+
+    <div id="player" class="hidden">
+
+        <div class="message">
+            📱 <strong>I GOT A TEXT!</strong><br><br>
+            "You've officially been coupled up with the Season Finale.
+            Please proceed to the fire pit immediately."
+        </div>
+
+        <video controls>
+            <source src="movie.mp4" type="video/mp4">
+        </video>
+
+        <p class="footer">
+            💕 Enjoy the finale! No Wi-Fi required.
+        </p>
+
+    </div>
+
 </div>
 
 <script src="script.js"></script>
