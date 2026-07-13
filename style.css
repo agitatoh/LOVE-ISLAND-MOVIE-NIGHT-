@@ -4,7 +4,6 @@
     padding:0;
 }
 
-
 body{
 
     font-family:'Poppins',sans-serif;
@@ -23,15 +22,15 @@ body{
     justify-content:center;
     align-items:center;
 
-    overflow:hidden;
+    overflow-x:hidden;
+    overflow-y:auto;
 
-    padding:30px;
+    padding:40px 30px;
 
 }
 
 
-
-/* scrapbook card */
+/* MAIN SCRAPBOOK CARD */
 
 .card{
 
@@ -49,16 +48,13 @@ body{
 
     z-index:2;
 
-
     box-shadow:
     0 25px 60px rgba(0,0,0,.18),
     inset 0 0 40px rgba(255,150,200,.15);
 
-
     border:5px solid white;
 
-    animation:
-    popIn .8s ease;
+    animation:popIn .8s ease;
 
 }
 
@@ -71,16 +67,13 @@ body{
 
     inset:15px;
 
-    border:
-
-    3px dashed #ffc1dc;
+    border:3px dashed #ffc1dc;
 
     border-radius:25px;
 
     pointer-events:none;
 
 }
-
 
 
 .tape{
@@ -104,6 +97,7 @@ body{
 }
 
 
+/* TEXT */
 
 h1{
 
@@ -116,7 +110,6 @@ h1{
 }
 
 
-
 #subtitle{
 
     color:#555;
@@ -127,13 +120,12 @@ h1{
 
     max-width:800px;
 
-    margin:auto;
-
-    margin-bottom:40px;
+    margin:0 auto 40px;
 
 }
 
 
+/* BUTTON */
 
 button{
 
@@ -161,7 +153,6 @@ button{
 }
 
 
-
 button:hover{
 
     transform:scale(1.05) rotate(-2deg);
@@ -172,12 +163,13 @@ button:hover{
 
 
 
+/* VIDEO SECTION */
+
 .hidden{
 
     display:none;
 
 }
-
 
 
 .message{
@@ -201,7 +193,6 @@ button:hover{
 }
 
 
-
 video{
 
     width:100%;
@@ -213,7 +204,6 @@ video{
     background:black;
 
 }
-
 
 
 .footer{
@@ -242,8 +232,72 @@ video{
 
 
 
-/* floating stickers */
+/* FULL SCREEN WATCH MODE */
 
+.card.watching{
+
+    background:black;
+
+    padding:0;
+
+    margin:0;
+
+    width:100vw;
+
+    height:100vh;
+
+    max-width:none;
+
+    border-radius:0;
+
+    border:none;
+
+    box-shadow:none;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+.card.watching::before{
+
+    display:none;
+
+}
+
+
+.card.watching .message,
+.card.watching .footer,
+.card.watching .signature,
+.card.watching h1,
+.card.watching #subtitle{
+
+    display:none;
+
+}
+
+
+.card.watching video{
+
+    width:100vw;
+
+    height:100vh;
+
+    max-height:none;
+
+    border-radius:0;
+
+    object-fit:contain;
+
+}
+
+
+
+/* FLOATING STICKERS */
 
 .sticker{
 
@@ -256,7 +310,6 @@ video{
     animation:wobble 3s infinite ease-in-out;
 
 }
-
 
 
 .sticker1{
@@ -310,8 +363,7 @@ video{
 
 
 
-/* falling hearts */
-
+/* FALLING HEARTS */
 
 .hearts::before{
 
@@ -321,6 +373,8 @@ video{
     position:absolute;
 
     top:-80px;
+
+    left:0;
 
     width:100%;
 
@@ -333,7 +387,6 @@ video{
     animation:fall 15s linear infinite;
 
 }
-
 
 
 @keyframes fall{
@@ -349,6 +402,8 @@ video{
 }
 
 
+
+/* OPENING ANIMATION */
 
 @keyframes popIn{
 
@@ -377,9 +432,16 @@ video{
 
 
 
-/* laptop + mobile */
+/* MOBILE */
 
 @media(max-width:800px){
+
+    body{
+
+        padding:25px 15px;
+
+    }
+
 
     .card{
 
