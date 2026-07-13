@@ -1,113 +1,418 @@
-const btn = document.getElementById("startBtn");
-const player = document.getElementById("player");
-
-const messages = [
-    "💌 I GOT A TEXT! Tonight's giving main character energy.",
-    "🌴 Welcome to the villa. Islanders, please take your seats.",
-    "💖 Warning: excessive screaming at the TV may occur.",
-    "✨ You're officially coupled up with the Season Finale."
-];
-
-btn.addEventListener("click", () => {
-
-    btn.style.display = "none";
-    player.classList.remove("hidden");
-
-    document.querySelector(".message").innerHTML =
-        messages[Math.floor(Math.random()*messages.length)];
-
-    document.querySelector("video").play();
-
-});
-
-Style: *{
+*{
     box-sizing:border-box;
     margin:0;
     padding:0;
 }
 
+
 body{
-    font-family:Poppins,sans-serif;
-    background:linear-gradient(135deg,#ff80bf,#ffb6d9,#ffd8ea);
+
+    font-family:'Poppins',sans-serif;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff8cc6,
+        #ffc4df,
+        #ffe8f2
+    );
+
     min-height:100vh;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     overflow:hidden;
+
+    padding:30px;
+
 }
+
+
+
+/* scrapbook card */
 
 .card{
-    width:90%;
-    max-width:900px;
-    background:white;
-    border-radius:30px;
-    padding:35px;
+
+    width:min(95vw,1200px);
+
+    background:#fffdf8;
+
+    border-radius:35px;
+
+    padding:55px;
+
     text-align:center;
-    box-shadow:0 25px 60px rgba(0,0,0,.2);
+
+    position:relative;
+
     z-index:2;
+
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.18),
+    inset 0 0 40px rgba(255,150,200,.15);
+
+
+    border:5px solid white;
+
+    animation:
+    popIn .8s ease;
+
 }
+
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:15px;
+
+    border:
+
+    3px dashed #ffc1dc;
+
+    border-radius:25px;
+
+    pointer-events:none;
+
+}
+
+
+
+.tape{
+
+    position:absolute;
+
+    width:130px;
+
+    height:35px;
+
+    background:#ffd1e5;
+
+    top:-18px;
+
+    left:50%;
+
+    transform:translateX(-50%) rotate(-3deg);
+
+    opacity:.8;
+
+}
+
+
 
 h1{
+
     color:#ff2f92;
-    font-size:2.3rem;
+
+    font-size:3.2rem;
+
+    margin-bottom:20px;
+
 }
+
+
 
 #subtitle{
-    margin:20px 0 30px;
+
     color:#555;
-    line-height:1.7;
+
+    font-size:1.25rem;
+
+    line-height:1.8;
+
+    max-width:800px;
+
+    margin:auto;
+
+    margin-bottom:40px;
+
 }
+
+
 
 button{
+
     border:none;
+
     background:#ff2f92;
+
     color:white;
-    padding:18px 40px;
-    font-size:18px;
+
+    padding:20px 55px;
+
+    font-size:1.25rem;
+
+    font-weight:700;
+
     border-radius:50px;
+
     cursor:pointer;
+
+    box-shadow:
+    0 12px 25px rgba(255,47,146,.35);
+
     transition:.3s;
+
 }
+
+
 
 button:hover{
-    transform:scale(1.05);
+
+    transform:scale(1.05) rotate(-2deg);
+
     background:#ff0d80;
+
 }
+
+
 
 .hidden{
+
     display:none;
+
 }
+
+
 
 .message{
-    background:#fff2f8;
+
+    background:#fff1f8;
+
+    border-radius:25px;
+
+    padding:25px;
+
+    margin:35px auto;
+
     color:#ff2f92;
-    border-radius:20px;
-    padding:20px;
-    margin:30px 0;
-    font-size:18px;
+
+    font-size:1.1rem;
+
+    line-height:1.7;
+
+    max-width:850px;
+
 }
+
+
 
 video{
+
     width:100%;
-    border-radius:20px;
+
+    max-height:70vh;
+
+    border-radius:25px;
+
+    background:black;
+
 }
+
+
 
 .footer{
+
     margin-top:20px;
+
     color:#888;
+
 }
+
+
+
+.signature{
+
+    margin-top:30px;
+
+    font-family:'Patrick Hand',cursive;
+
+    color:#ff70ae;
+
+    font-size:1.5rem;
+
+    transform:rotate(-3deg);
+
+}
+
+
+
+/* floating stickers */
+
+
+.sticker{
+
+    position:absolute;
+
+    font-size:55px;
+
+    z-index:1;
+
+    animation:wobble 3s infinite ease-in-out;
+
+}
+
+
+
+.sticker1{
+    top:8%;
+    left:8%;
+}
+
+
+.sticker2{
+    top:15%;
+    right:10%;
+}
+
+
+.sticker3{
+    bottom:15%;
+    left:10%;
+}
+
+
+.sticker4{
+    bottom:10%;
+    right:12%;
+}
+
+
+.sticker5{
+    top:45%;
+    left:3%;
+}
+
+
+.sticker6{
+    top:45%;
+    right:3%;
+}
+
+
+
+@keyframes wobble{
+
+    0%,100%{
+        transform:rotate(-5deg) translateY(0);
+    }
+
+    50%{
+        transform:rotate(8deg) translateY(-12px);
+    }
+
+}
+
+
+
+/* falling hearts */
+
 
 .hearts::before{
-    content:"💖 💕 💗 💖 💕 💗";
+
+    content:
+    "💖 ✨ 💕 🌴 💗 ✨ 💖 🏝️ 💕";
+
     position:absolute;
-    top:-40px;
+
+    top:-80px;
+
     width:100%;
-    font-size:40px;
-    animation:float 18s linear infinite;
+
+    text-align:center;
+
+    font-size:45px;
+
     opacity:.35;
+
+    animation:fall 15s linear infinite;
+
 }
 
-@keyframes float{
-    from{transform:translateY(0);}
-    to{transform:translateY(120vh);}
+
+
+@keyframes fall{
+
+    from{
+        transform:translateY(-10vh);
+    }
+
+    to{
+        transform:translateY(120vh);
+    }
+
+}
+
+
+
+@keyframes popIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        scale(.85)
+        rotate(-3deg);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:
+        scale(1)
+        rotate(0);
+
+    }
+
+}
+
+
+
+/* laptop + mobile */
+
+@media(max-width:800px){
+
+    .card{
+
+        padding:35px 25px;
+
+    }
+
+
+    h1{
+
+        font-size:2.2rem;
+
+    }
+
+
+    #subtitle{
+
+        font-size:1rem;
+
+    }
+
+
+    button{
+
+        width:100%;
+
+    }
+
+
+    .sticker{
+
+        display:none;
+
+    }
+
 }
